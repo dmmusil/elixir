@@ -7,7 +7,6 @@ defmodule ArcadeWeb.Hangman do
       socket
       |> assign(:secret, secret)
       |> assign(:guesses, [])
-      |> assign(:guessables, guessables())
 
     {:ok, socket}
   end
@@ -18,14 +17,11 @@ defmodule ArcadeWeb.Hangman do
 
     <p>
     <%= for c <- guessables() do %>
-      <%= if disable?(c, @guesses) do %>
-      <span><%= c %></span>
-      <% else %>
-      <span phx-key={c} phx-click='guess' phx-value-guess={c} style='cursor: pointer;'><%= c %></span>
-
-      <% end %>
+    <span phx-key={c} phx-click='guess' phx-value-guess={c} style='cursor: pointer;'><%= c %></span>
     <% end  %>
     </p>
+
+    <p>Guessed so far: <%= @guesses %></p>
     """
   end
 
@@ -33,22 +29,17 @@ defmodule ArcadeWeb.Hangman do
     Enum.map(String.codepoints(secret), fn c -> if c in guesses, do: "#{c} ", else: "_ " end)
   end
 
-  defp disable?(g, guesses) do
-    g in guesses
-  end
-
   defp guessables() do
     ~w(a b c d e f g h i j k l m n o p q r s t u v w x y z)
   end
 
   def handle_event("guess", %{"guess" => c}, socket) do
-    guesses = socket.assigns.guesses ++ [c]
-    guessables = Enum.filter(guessables(), fn c -> !(c in guesses) end)
+    currrnt_guesses = socket.assigns.guesses
+    guesses = if c in currrnt_guesses, do: currrnt_guesses, else: currrnt_guesses ++ [c]
 
     socket =
       socket
       |> assign(:guesses, guesses)
-      |> assign(:guessables, guessables)
 
     {:noreply, socket}
   end
