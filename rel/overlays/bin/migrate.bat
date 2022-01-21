@@ -1,0 +1,1 @@
+call "%~dp0\arcade" eval Arcade.Release.migrate
