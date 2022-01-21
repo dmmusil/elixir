@@ -12,9 +12,10 @@ jobs:
       FLY_API_TOKEN: ${{secrets.FLY_TOKEN}}
     services:
       postgres:
-        container_name: postgres_container
         image: postgres
-
+        env:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_USER: postgres
     steps:
       - uses: actions/checkout@v2
       - name: Set up Elixir
