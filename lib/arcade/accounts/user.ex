@@ -38,8 +38,9 @@ defmodule Arcade.Accounts.User do
   defp validate_email(changeset) do
     changeset
     |> validate_required([:email])
-    |> validate_inclusion(:email, ["dylan@musil.dev"])
-    |> validate_format(:email, ~r/^[^\s]+@[^\s]+$/, message: "must have the @ sign and no spaces")
+    |> validate_format(:email, ~r/^[^\s]+@musil.dev$/i,
+      message: "must have the @ sign and no spaces"
+    )
     |> validate_length(:email, max: 160)
     |> unsafe_validate_unique(:email, Arcade.Repo)
     |> unique_constraint(:email)
