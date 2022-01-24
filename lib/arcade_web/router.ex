@@ -23,6 +23,7 @@ defmodule ArcadeWeb.Router do
     get "/", PageController, :index
 
     live "/hangman/:secret", Hangman
+    live "/wordle/:word", Wordle
   end
 
   # Other scopes may use custom stacks.
