@@ -15,12 +15,26 @@ defmodule Arcade.Wordle do
     guess
     |> String.codepoints()
     |> Enum.with_index()
-    |> Enum.map(fn {c, i} ->
+    |> Enum.reduce({[], letter_count}, fn {c, i}, acc ->
       cond do
-        String.at(word, i) == c -> :correct
-        String.contains?(word, c) -> :present
-        true -> :absent
+        String.at(word, i) == c ->
+          {elem(acc, 0) ++ [:correct], decrement_letter(c, elem(acc, 1))}
+
+        String.contains?(word, c) && at_least_one(c, elem(acc, 1)) ->
+          {elem(acc, 0) ++ [:present], decrement_letter(c, elem(acc, 1))}
+
+        true ->
+          {elem(acc, 0) ++ [:absent], elem(acc, 1)}
       end
     end)
+    |> elem(0)
+  end
+
+  defp decrement_letter(letter, counts) do
+    Map.update(counts, letter, 0, fn l -> max(0, l - 1) end)
+  end
+
+  defp at_least_one(letter, counts) do
+    Map.get(counts, letter, 0) > 0
   end
 end
