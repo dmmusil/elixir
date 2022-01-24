@@ -10,6 +10,8 @@ import Config
 # which you should run after static files are built and
 # before starting your production server.
 config :arcade, ArcadeWeb.Endpoint, cache_static_manifest: "priv/static/cache_manifest.json"
+  url: [host: "elixir.musil.dev"],
+  force_ssl: [rewrite_on: [:x_forwarded_proto], host: nil, hsts: true]
 
 # Do not print debug messages in production
 config :logger, level: :info
