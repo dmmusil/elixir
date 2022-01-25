@@ -21,6 +21,7 @@ defmodule ArcadeWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    get "/posts/:slug", PostController, :show
 
     live "/hangman/:secret", Hangman
     live "/wordle/:word", Wordle

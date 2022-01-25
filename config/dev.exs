@@ -59,7 +59,8 @@ config :arcade, ArcadeWeb.Endpoint,
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
       ~r"lib/arcade_web/(live|views)/.*(ex)$",
-      ~r"lib/arcade_web/templates/.*(eex)$"
+      ~r"lib/arcade_web/templates/.*(eex)$",
+      ~r"posts/*/.*(md)$"
     ]
   ]
 
