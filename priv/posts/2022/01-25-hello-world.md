@@ -14,6 +14,7 @@ description: "Let's learn how to say hello world"
 This is the post.
 
 ```elixir
+# a function
 def test() do
   1+1
 end

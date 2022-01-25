@@ -46,12 +46,12 @@
   transition: opacity 1s ease-out;
 }
 
-.phx-loading{
+.phx-loading {
   cursor: wait;
 }
 
 .phx-modal {
-  opacity: 1!important;
+  opacity: 1 !important;
   position: fixed;
   z-index: 1;
   left: 0;
@@ -59,7 +59,7 @@
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .phx-modal-content {
@@ -99,22 +99,299 @@
   animation: 0.2s ease-out 0s normal forwards 1 fade-out-keys;
 }
 
-@keyframes fade-in-scale-keys{
-  0% { scale: 0.95; opacity: 0; }
-  100% { scale: 1.0; opacity: 1; }
+@keyframes fade-in-scale-keys {
+  0% {
+    scale: 0.95;
+    opacity: 0;
+  }
+  100% {
+    scale: 1;
+    opacity: 1;
+  }
 }
 
-@keyframes fade-out-scale-keys{
-  0% { scale: 1.0; opacity: 1; }
-  100% { scale: 0.95; opacity: 0; }
+@keyframes fade-out-scale-keys {
+  0% {
+    scale: 1;
+    opacity: 1;
+  }
+  100% {
+    scale: 0.95;
+    opacity: 0;
+  }
 }
 
-@keyframes fade-in-keys{
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+@keyframes fade-in-keys {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
-@keyframes fade-out-keys{
-  0% { opacity: 1; }
-  100% { opacity: 0; }
+@keyframes fade-out-keys {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
+
+.makeup.elixir .hll {
+  background-color: #ffffcc;
+}
+.makeup.elixir {
+  background-color: #ffffff;
+}
+.makeup.elixir .unselectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.makeup.elixir .hll {
+  background-color: #ffffcc;
+}
+.makeup.elixir {
+  background-color: #f8f8f8;
+}
+.makeup.elixir .unselectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.makeup.elixir .bp {
+  color: #008000;
+} /* :name_builtin_pseudo */
+.makeup.elixir .c {
+  color: #408080;
+  font-style: italic;
+} /* :comment */
+.makeup.elixir .c1 {
+  color: #408080;
+  font-style: italic;
+} /* :comment_single */
+.makeup.elixir .ch {
+  color: #408080;
+  font-style: italic;
+} /* :comment_hashbang */
+.makeup.elixir .cm {
+  color: #408080;
+  font-style: italic;
+} /* :comment_multiline */
+.makeup.elixir .cp {
+  color: #bc7a00;
+  font-style: normal;
+} /* :comment_preproc */
+.makeup.elixir .cpf {
+  color: #bc7a00;
+  font-style: normal;
+} /* :comment_preproc_file */
+.makeup.elixir .cs {
+  color: #408080;
+  font-style: italic;
+} /* :comment_special */
+.makeup.elixir .dl {
+  color: #ba2121;
+} /* :string_delimiter */
+.makeup.elixir .err {
+  border: #ff0000;
+} /* :error */
+.makeup.elixir .fm {
+  color: #0000ff;
+} /* :name_function_magic */
+.makeup.elixir .gd {
+  color: #a00000;
+} /* :generic_deleted */
+.makeup.elixir .ge {
+  font-style: italic;
+} /* :generic_emph */
+.makeup.elixir .gh {
+  color: #000080;
+  font-weight: bold;
+} /* :generic_heading */
+.makeup.elixir .gi {
+  color: #00a000;
+} /* :generic_inserted */
+.makeup.elixir .go {
+  color: #888;
+} /* :generic_output */
+.makeup.elixir .gp {
+  color: #000080;
+  font-weight: bold;
+} /* :generic_prompt */
+.makeup.elixir .gr {
+  color: #ff0000;
+} /* :generic_error */
+.makeup.elixir .gs {
+  font-weight: bold;
+} /* :generic_strong */
+.makeup.elixir .gt {
+  color: #04d;
+} /* :generic_traceback */
+.makeup.elixir .gu {
+  color: #800080;
+  font-weight: bold;
+} /* :generic_subheading */
+.makeup.elixir .il {
+  color: #666666;
+} /* :number_integer_long */
+.makeup.elixir .k {
+  color: #008000;
+  font-weight: bold;
+} /* :keyword */
+.makeup.elixir .kc {
+  color: #008000;
+  font-weight: bold;
+} /* :keyword_constant */
+.makeup.elixir .kd {
+  color: #008000;
+  font-weight: bold;
+} /* :keyword_declaration */
+.makeup.elixir .kn {
+  color: #008000;
+  font-weight: bold;
+} /* :keyword_namespace */
+.makeup.elixir .kp {
+  color: #008000;
+  font-weight: normal;
+} /* :keyword_pseudo */
+.makeup.elixir .kr {
+  color: #008000;
+  font-weight: bold;
+} /* :keyword_reserved */
+.makeup.elixir .kt {
+  color: #b00040;
+  font-weight: normal;
+} /* :keyword_type */
+.makeup.elixir .m {
+  color: #666666;
+} /* :number */
+.makeup.elixir .mb {
+  color: #666666;
+} /* :number_bin */
+.makeup.elixir .mf {
+  color: #666666;
+} /* :number_float */
+.makeup.elixir .mh {
+  color: #666666;
+} /* :number_hex */
+.makeup.elixir .mi {
+  color: #666666;
+} /* :number_integer */
+.makeup.elixir .mo {
+  color: #666666;
+} /* :number_oct */
+.makeup.elixir .na {
+  color: #7d9029;
+} /* :name_attribute */
+.makeup.elixir .nb {
+  color: #008000;
+} /* :name_builtin */
+.makeup.elixir .nc {
+  color: #0000ff;
+  font-weight: bold;
+} /* :name_class */
+.makeup.elixir .nd {
+  color: #aa22ff;
+} /* :name_decorator */
+.makeup.elixir .ne {
+  color: #d2413a;
+  font-weight: bold;
+} /* :name_exception */
+.makeup.elixir .nf {
+  color: #0000ff;
+} /* :name_function */
+.makeup.elixir .ni {
+  color: #999999;
+  font-weight: bold;
+} /* :name_entity */
+.makeup.elixir .nl {
+  color: #a0a000;
+} /* :name_label */
+.makeup.elixir .nn {
+  color: #0000ff;
+  font-weight: bold;
+} /* :name_namespace */
+.makeup.elixir .no {
+  color: #880000;
+} /* :name_constant */
+.makeup.elixir .nt {
+  color: #008000;
+  font-weight: bold;
+} /* :name_tag */
+.makeup.elixir .nv {
+  color: #19177c;
+} /* :name_variable */
+.makeup.elixir .o {
+  color: #666666;
+} /* :operator */
+.makeup.elixir .ow {
+  color: #aa22ff;
+  font-weight: bold;
+} /* :operator_word */
+.makeup.elixir .s {
+  color: #ba2121;
+} /* :string */
+.makeup.elixir .s1 {
+  color: #ba2121;
+} /* :string_single */
+.makeup.elixir .s2 {
+  color: #ba2121;
+} /* :string_double */
+.makeup.elixir .sa {
+  color: #ba2121;
+} /* :string_affix */
+.makeup.elixir .sb {
+  color: #ba2121;
+} /* :string_backtick */
+.makeup.elixir .sc {
+  color: #ba2121;
+} /* :string_char */
+.makeup.elixir .sd {
+  color: #ba2121;
+  font-style: italic;
+} /* :string_doc */
+.makeup.elixir .se {
+  color: #bb6622;
+  font-weight: bold;
+} /* :string_escape */
+.makeup.elixir .sh {
+  color: #ba2121;
+} /* :string_heredoc */
+.makeup.elixir .si {
+  color: #bb6688;
+  font-weight: bold;
+} /* :string_interpol */
+.makeup.elixir .sr {
+  color: #bb6688;
+} /* :string_regex */
+.makeup.elixir .ss {
+  color: #19177c;
+} /* :string_symbol */
+.makeup.elixir .sx {
+  color: #008000;
+} /* :string_other */
+.makeup.elixir .sx {
+  color: #ba2121;
+} /* :string_sigil */
+.makeup.elixir .vc {
+  color: #19177c;
+} /* :name_variable_class */
+.makeup.elixir .vg {
+  color: #19177c;
+} /* :name_variable_global */
+.makeup.elixir .vi {
+  color: #19177c;
+} /* :name_variable_instance */
+.makeup.elixir .vm {
+  color: #19177c;
+} /* :name_variable_magic */
