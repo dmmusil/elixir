@@ -69,7 +69,12 @@ defmodule ArcadeWeb.Wordle do
         _ -> assigns.letter
       end
 
-    bg_color = assigns.result
+    bg_color =
+      case assigns.result do
+        :correct -> "#00ff00"
+        :present -> "#ffff00"
+        _ -> "#cccccc"
+      end
 
     style =
       "background-color: #{bg_color}; width: 2em; font-size: 2em; display: inline-block; text-align: center; v-align: bottom"
@@ -132,7 +137,7 @@ defmodule ArcadeWeb.Wordle do
 
     case guess_length do
       5 ->
-        result = evaluate_guess(socket.assigns.word, value)
+        result = Arcade.Wordle.evaluate_guess(socket.assigns.word, value)
         current_guess_key = current_guess_key(socket)
 
         socket
@@ -142,18 +147,6 @@ defmodule ArcadeWeb.Wordle do
       _ ->
         socket
     end
-  end
-
-  defp evaluate_guess(word, guess) do
-    empty_result()
-    |> Enum.with_index()
-    |> Enum.map(fn {r, i} ->
-      cond do
-        String.at(word, i) == String.at(guess, i) -> "#00ff00"
-        String.contains?(word, String.at(guess, i)) -> "#ffff00"
-        true -> r
-      end
-    end)
   end
 
   defp current_guess(socket) do

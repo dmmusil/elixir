@@ -37,5 +37,18 @@ defmodule Arcade.WordleTest do
                :present
              ]
     end
+
+    test "handles duplicate letters in guesses, multiple occurrences in word v2" do
+      word = "tests"
+      guess = "ttttt"
+
+      assert Wordle.evaluate_guess(word, guess) == [
+               :correct,
+               :absent,
+               :absent,
+               :correct,
+               :absent
+             ]
+    end
   end
 end
