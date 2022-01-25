@@ -1,3 +1,5 @@
+<h2>Welcome to my blog</h2>
+
 <%= for post <- @posts do %>
 <p><%= link "#{post.title} - #{post.date}", to: "/posts/#{post.id}" %></p>
 <p><%= raw post.body %> </p>
