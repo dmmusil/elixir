@@ -36,6 +36,7 @@ defmodule ArcadeWeb.Wordle do
   def render(assigns) do
     ~H"""
     <div class="container" phx-window-keyup="interact">
+      Press enter to submit a guess after entering 5 letters
       <.render_guess guess={@guess1} result={@result1}/>
       <.render_guess guess={@guess2} result={@result2}/>
       <.render_guess guess={@guess3} result={@result3}/>
