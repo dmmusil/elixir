@@ -31,7 +31,9 @@ It took an hour to set up. No database required!
 
 Fly makes it easy. Sign up, provide a credit card (to prevent crypto mining only), `brew install superfly/tap/flyctl`, and `fly launch`. That's it.
 
-Enabling CD with a Github action is similarly easy. `fly auth token` gets you a token to store in your repository secrets. Then use this YAML:
+Enabling CD with a Github action is similarly easy. `fly auth token` gets you a token to store in your repository secrets.
+
+The [Fly docs](https://fly.io/docs/app-guides/continuous-deployment-with-github-actions/#speed-run-your-way-to-continuous-deployment){:target="\_blank"} for this are excellent, but for an Elixir example with Postgres running in a container see this YAML:
 
 ```
 name: Elixir CI
