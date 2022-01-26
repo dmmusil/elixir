@@ -19,19 +19,19 @@ To take the new experience for a spin I made a very rough but correct Wordle clo
 
 I just challenged myself to solve the guess evaluation functionally. I see lots of examples of people creating a naive guess evaluation algorithm that fails to produce correct output when letters repeat. Try guessing `poppy` at the link provided to see what I mean. The secret word is `apple` and `poppy` has one `p` that's correctly positioned and two that aren't. Only one of the `p`s should be yellow since there are only two in the secret word. Many implementations I've seen will falsely color both of the `p`s yellow in addition to the correct `p` that's green.
 
-The evaluation algorithm is [here](https://github.com/dmmusil/elixir/blob/main/lib/arcade/wordle/wordle.ex){:target="\_blank"}
+The evaluation algorithm is [here](https://github.com/dmmusil/elixir/blob/main/lib/arcade/wordle/wordle.ex){:target="\_blank"}. I use two passes to evaluate the guess. The first pass marks correct letters only. The second pass takes any leftover letters and marks them as `:present` when it's appropriate. This two-pass approach let me remove correctly placed letters from the "marking pool" so other duplicates don't get marked as `:present` when they're really `:absent`.
 
 ### The blog, courtesy of Dashbit
 
 I figured building a blog would be a good learning exercise. But I did one Google search and found NimblePublisher via the [Dashbit blog](https://dashbit.co/blog/welcome-to-our-blog-how-it-was-made){:target="\_blank"} and here we are.
 
-It took an hour to setup and configured. No database required!
+It took an hour to set up. No database required!
 
 ### Deploying to Fly
 
-Fly makes it easy. Sign up, provide a credit card, `brew install superfly/tap/flyctl`, and `fly launch`. That's it.
+Fly makes it easy. Sign up, provide a credit card (to prevent crypto mining only), `brew install superfly/tap/flyctl`, and `fly launch`. That's it.
 
-To activate CD with a Github action is similarly easy. `fly auth token` gets you a token to store in your repository secrets. Then use this YAML:
+Enabling CD with a Github action is similarly easy. `fly auth token` gets you a token to store in your repository secrets. Then use this YAML:
 
 ```
 name: Elixir CI
