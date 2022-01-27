@@ -3,13 +3,12 @@ defmodule ArcadeWeb.PostCard do
 
   def render(assigns) do
     ~H"""
-    <p><a href={"/posts/#{@post.id}"}><%= "#{@post.title} - #{@post.date}" %></a></p>
-    <p><%= @post.description %> </p>
-    <p>
-      <%= for tag <- @post.tags do %>
-        <span><a href={"/tags/#{tag}"}><%= tag %></a></span>
-      <% end %>
-    </p>
+    <p><a href={"/posts/#{@post.id}"}><%= "#{@post.title} - #{@post.date}" %></a><br />
+    <%= for tag <- @post.tags do %>
+      <span class="tag"><a href={"/tags/#{tag}"}><i class="bi-tag"></i> <%= tag %></a></span>
+    <% end %></p>
+    <p><%= @post.description %></p>
+    <hr/>
     """
   end
 end
