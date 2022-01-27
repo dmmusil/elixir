@@ -1,4 +1,4 @@
-<h2>Welcome to my blog</h2>
+<h2>Posts tagged with <code><%= @tag %></code></h2>
 
 <%= for post <- @posts do %>
 <ArcadeWeb.PostCard.render post={post} />

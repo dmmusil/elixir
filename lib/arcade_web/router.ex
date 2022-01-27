@@ -22,6 +22,7 @@ defmodule ArcadeWeb.Router do
 
     get "/", PageController, :index
     get "/posts/:slug", PostController, :show
+    get "/tags/:tag", TagController, :show
 
     live "/hangman/:secret", Hangman
     live "/wordle/:word", Wordle

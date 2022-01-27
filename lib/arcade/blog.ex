@@ -17,4 +17,7 @@ defmodule Arcade.Blog do
   # And finally export them
   def all_posts, do: @posts
   def all_tags, do: @tags
+
+  def posts_with_tag(tag),
+    do: all_posts() |> Enum.filter(fn post -> post.tags |> Enum.any?(&(&1 == tag)) end)
 end

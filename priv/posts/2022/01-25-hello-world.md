@@ -1,8 +1,8 @@
 %{
 title: "Elixir Blog on Fly.io",
 author: "Dylan",
-tags: ~w(hello welcome),
-description: "Elixir Blog on Fly.io"
+tags: ~w(elixir blog liveview),
+description: "Building a blog, deploying to Fly.io, and a LiveView Wordle implementation."
 }
 
 ---
