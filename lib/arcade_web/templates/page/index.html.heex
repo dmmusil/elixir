@@ -1,5 +1,15 @@
-<h2>Recent posts</h2>
+<div class="row">
+    <div class="column column-60">
+        <h2>Recent posts</h2>
 
-<%= for post <- @posts do %>
-<ArcadeWeb.PostCard.render post={post} />
-<% end %>
+        <%= for post <- @posts do %>
+        <ArcadeWeb.Blog.Components.post_card post={post} />
+        <% end %>
+    </div>
+    <div class="column column-40">
+        <h3>Tags</h3>
+        <%= for tag <- @tags do %>
+        <ArcadeWeb.Blog.Components.tag tag={tag} />
+        <% end %>
+    </div>
+</div>

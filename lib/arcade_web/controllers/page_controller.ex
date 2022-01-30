@@ -3,6 +3,6 @@ defmodule ArcadeWeb.PageController do
   alias Arcade.Blog
 
   def index(conn, _params) do
-    render(conn |> assign(:posts, Blog.all_posts()), "index.html")
+    render(conn, "index.html", posts: Blog.all_posts(), tags: Blog.all_tags())
   end
 end
