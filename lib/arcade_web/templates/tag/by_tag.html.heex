@@ -1,5 +1,5 @@
 <h2>Posts tagged with <code><%= @tag %></code></h2>
 
 <%= for post <- @posts do %>
-<ArcadeWeb.PostCard.render post={post} />
+<ArcadeWeb.Blog.Components.post_card post={post} />
 <% end %>
