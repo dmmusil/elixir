@@ -1,6 +1,6 @@
-# fly.toml file generated for dawn-cloud-1940 on 2022-01-20T21:45:03-05:00
+# fly.toml file generated for green-sea-5511 on 2022-01-31T22:21:05-05:00
 
-app = "dawn-cloud-1940"
+app = "green-sea-5511"
 
 kill_signal = "SIGTERM"
 kill_timeout = 5
@@ -10,7 +10,7 @@ processes = []
   release_command = "/app/bin/migrate"
 
 [env]
-  PHX_HOST = "dawn-cloud-1940.fly.dev"
+  PHX_HOST = "green-sea-5511.fly.dev"
   PORT = "8080"
 
 [experimental]
