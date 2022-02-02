@@ -14,7 +14,7 @@ defmodule ArcadeWeb.ExerciseLiveTest do
   end
 
   describe "Index" do
-    setup [:create_exercise]
+    setup [:create_exercise, :register_and_log_in_user]
 
     test "lists all exercises", %{conn: conn, exercise: exercise} do
       {:ok, _index_live, html} = live(conn, Routes.exercise_index_path(conn, :index))
@@ -76,7 +76,7 @@ defmodule ArcadeWeb.ExerciseLiveTest do
   end
 
   describe "Show" do
-    setup [:create_exercise]
+    setup [:create_exercise, :register_and_log_in_user]
 
     test "displays exercise", %{conn: conn, exercise: exercise} do
       {:ok, _show_live, html} = live(conn, Routes.exercise_show_path(conn, :show, exercise))
