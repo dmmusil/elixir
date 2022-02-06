@@ -1,11 +1,11 @@
 defmodule ArcadeWeb.ExerciseLive.FormComponent do
   use ArcadeWeb, :live_component
 
-  alias Arcade.ExerciseCatalog
+  alias Arcade.Rehab
 
   @impl true
   def update(%{exercise: exercise} = assigns, socket) do
-    changeset = ExerciseCatalog.change_exercise(exercise)
+    changeset = Rehab.change_exercise(exercise)
 
     {:ok,
      socket
@@ -17,7 +17,7 @@ defmodule ArcadeWeb.ExerciseLive.FormComponent do
   def handle_event("validate", %{"exercise" => exercise_params}, socket) do
     changeset =
       socket.assigns.exercise
-      |> ExerciseCatalog.change_exercise(exercise_params)
+      |> Rehab.change_exercise(exercise_params)
       |> Map.put(:action, :validate)
 
     {:noreply, assign(socket, :changeset, changeset)}
@@ -28,7 +28,7 @@ defmodule ArcadeWeb.ExerciseLive.FormComponent do
   end
 
   defp save_exercise(socket, :edit, exercise_params) do
-    case ExerciseCatalog.update_exercise(socket.assigns.exercise, exercise_params) do
+    case Rehab.update_exercise(socket.assigns.exercise, exercise_params) do
       {:ok, _exercise} ->
         {:noreply,
          socket
@@ -41,7 +41,7 @@ defmodule ArcadeWeb.ExerciseLive.FormComponent do
   end
 
   defp save_exercise(socket, :new, exercise_params) do
-    case ExerciseCatalog.create_exercise(exercise_params) do
+    case Rehab.create_exercise(exercise_params) do
       {:ok, _exercise} ->
         {:noreply,
          socket

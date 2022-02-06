@@ -1,0 +1,36 @@
+<h1>Show Workout</h1>
+
+<%= if @live_action in [:edit] do %>
+  <.modal return_to={Routes.workout_show_path(@socket, :show, @workout)}>
+    <.live_component
+      module={ArcadeWeb.WorkoutLive.FormComponent}
+      id={@workout.id}
+      title={@page_title}
+      action={@live_action}
+      workout={@workout}
+      return_to={Routes.workout_show_path(@socket, :show, @workout)}
+    />
+  </.modal>
+<% end %>
+
+<ul>
+
+  <li>
+    <strong>Date:</strong>
+    <%= @workout.date %>
+  </li>
+
+  <li>
+    <strong>Start time:</strong>
+    <%= @workout.start_time %>
+  </li>
+
+  <li>
+    <strong>End time:</strong>
+    <%= @workout.end_time %>
+  </li>
+
+</ul>
+
+<span><%= live_patch "Edit", to: Routes.workout_show_path(@socket, :edit, @workout), class: "button" %></span> |
+<span><%= live_redirect "Back", to: Routes.workout_index_path(@socket, :index) %></span>

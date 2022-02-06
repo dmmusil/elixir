@@ -90,6 +90,13 @@ defmodule ArcadeWeb.Router do
 
     live "/exercises/:id", ExerciseLive.Show, :show
     live "/exercises/:id/show/edit", ExerciseLive.Show, :edit
+
+    live "/workouts", WorkoutLive.Index, :index
+    live "/workouts/new", WorkoutLive.Index, :new
+    live "/workouts/:id/edit", WorkoutLive.Index, :edit
+
+    live "/workouts/:id", WorkoutLive.Show, :show
+    live "/workouts/:id/show/edit", WorkoutLive.Show, :edit
   end
 
   scope "/", ArcadeWeb do

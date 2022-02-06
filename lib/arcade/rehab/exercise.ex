@@ -1,10 +1,10 @@
-defmodule Arcade.ExerciseCatalog.Exercise do
+defmodule Arcade.Rehab.Exercise do
   use Ecto.Schema
   import Ecto.Changeset
 
   schema "exercises" do
     field :name, :string
-
+    many_to_many :workouts, Arcade.Rehab.Workout, join_through: "workout_exercises"
     timestamps()
   end
 

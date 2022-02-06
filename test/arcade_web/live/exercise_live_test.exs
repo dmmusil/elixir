@@ -2,7 +2,7 @@ defmodule ArcadeWeb.ExerciseLiveTest do
   use ArcadeWeb.ConnCase
 
   import Phoenix.LiveViewTest
-  import Arcade.ExerciseCatalogFixtures
+  import Arcade.RehabFixtures
 
   @create_attrs %{name: "some name"}
   @update_attrs %{name: "some updated name"}
