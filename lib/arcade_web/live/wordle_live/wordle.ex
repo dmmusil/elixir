@@ -2,25 +2,36 @@ defmodule ArcadeWeb.Wordle do
   use Phoenix.LiveView
   use Phoenix.HTML
 
+  def mount(%{"word" => "play"}, _session, socket) do
+    {:ok,
+     socket
+     |> assign(Arcade.Wordle.Dictionary.random() |> setup())}
+  end
+
   def mount(%{"word" => word}, _session, socket) do
     {:ok,
      socket
-     |> assign(%{
-       guess1: "",
-       guess2: "",
-       guess3: "",
-       guess4: "",
-       guess5: "",
-       guess6: "",
-       result1: empty_result(),
-       result2: empty_result(),
-       result3: empty_result(),
-       result4: empty_result(),
-       result5: empty_result(),
-       result6: empty_result(),
-       current_guess: 1,
-       word: word
-     })}
+     |> assign(setup(word))}
+  end
+
+  defp setup(word) do
+    %{
+      guess1: "",
+      guess2: "",
+      guess3: "",
+      guess4: "",
+      guess5: "",
+      guess6: "",
+      result1: empty_result(),
+      result2: empty_result(),
+      result3: empty_result(),
+      result4: empty_result(),
+      result5: empty_result(),
+      result6: empty_result(),
+      current_guess: 1,
+      word: word,
+      style: "display: none"
+    }
   end
 
   defp empty_result() do
@@ -43,7 +54,7 @@ defmodule ArcadeWeb.Wordle do
       <.render_guess guess={@guess4} result={@result4}/>
       <.render_guess guess={@guess5} result={@result5}/>
       <.render_guess guess={@guess6} result={@result6}/>
-      <p><%= @word %></p>
+      <p style={@style}>Answer was <%= @word %></p>
     </div>
     """
   end
@@ -138,12 +149,19 @@ defmodule ArcadeWeb.Wordle do
 
     case guess_length do
       5 ->
-        result = Arcade.Wordle.evaluate_guess(socket.assigns.word, value)
-        current_guess_key = current_guess_key(socket)
+        case Arcade.Wordle.Dictionary.valid_guess?(value) do
+          true ->
+            result = Arcade.Wordle.evaluate_guess(socket.assigns.word, value)
+            current_guess_key = current_guess_key(socket)
 
-        socket
-        |> update(:current_guess, &(&1 + 1))
-        |> assign(String.to_atom("result#{current_guess_key}"), result)
+            socket
+            |> update(:current_guess, &(&1 + 1))
+            |> assign(String.to_atom("result#{current_guess_key}"), result)
+            |> update(:style, &if(current_guess_key == 6, do: "", else: &1))
+
+          false ->
+            assign(socket, String.to_atom("guess#{current_guess_key(socket)}"), "")
+        end
 
       _ ->
         socket
