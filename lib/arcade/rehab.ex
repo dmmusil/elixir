@@ -6,7 +6,7 @@ defmodule Arcade.Rehab do
   import Ecto.Query, warn: false
   alias Arcade.Repo
 
-  alias Arcade.Rehab.Workout
+  alias Arcade.Rehab.{Workout, WorkoutExercise}
 
   @doc """
   Returns the list of workouts.
@@ -196,5 +196,14 @@ defmodule Arcade.Rehab do
   """
   def change_exercise(%Exercise{} = exercise, attrs \\ %{}) do
     Exercise.changeset(exercise, attrs)
+  end
+
+  def add_exercise_to_workout(
+        %Workout{id: workout_id} = _workout,
+        %Exercise{id: exercise_id} = _exercise
+      ) do
+    %WorkoutExercise{}
+    |> WorkoutExercise.changeset(%{workout_id: workout_id, exercise_id: exercise_id})
+    |> Repo.insert()
   end
 end

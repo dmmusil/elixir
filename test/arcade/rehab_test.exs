@@ -126,4 +126,15 @@ defmodule Arcade.RehabTest do
       assert %Ecto.Changeset{} = Rehab.change_exercise(exercise)
     end
   end
+
+  describe "building workouts" do
+    import Arcade.RehabFixtures
+
+    test "add exercise to workout" do
+      exercise = exercise_fixture()
+      workout = workout_fixture()
+
+      assert {:ok, _} = Rehab.add_exercise_to_workout(workout, exercise)
+    end
+  end
 end

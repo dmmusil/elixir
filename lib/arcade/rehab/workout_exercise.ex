@@ -12,7 +12,7 @@ defmodule Arcade.Rehab.WorkoutExercise do
   @doc false
   def changeset(exercise, attrs) do
     exercise
-    |> cast(attrs, [])
-    |> validate_required([])
+    |> cast(attrs, [:workout_id, :exercise_id])
+    |> validate_required([:workout_id, :exercise_id])
   end
 end

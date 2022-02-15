@@ -64,7 +64,7 @@ defmodule ArcadeWeb.Wordle do
     result = assigns.result
 
     ~H"""
-      <p>
+      <p style="margin-bottom: 0.5rem">
         <.cell letter={String.at(guess,0)} result={Enum.at(result, 0)}/>
         <.cell letter={String.at(guess,1)} result={Enum.at(result, 1)}/>
         <.cell letter={String.at(guess,2)} result={Enum.at(result, 2)}/>

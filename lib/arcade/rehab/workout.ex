@@ -7,7 +7,7 @@ defmodule Arcade.Rehab.Workout do
     field :end_time, :time
     field :start_time, :time
 
-    many_to_many :exercises, Arcade.Rehab.WorkoutExercise,
+    many_to_many :exercises, Arcade.Rehab.Exercise,
       join_through: "workout_exercises",
       on_replace: :delete
 
