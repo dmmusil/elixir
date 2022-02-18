@@ -15,7 +15,7 @@ What a time to return! All the new features in LiveView are amazing and really i
 
 I won't detail too much what's new, but there's a nice video from ElixirConf that got me excited: [The Future of Full-stack](https://www.youtube.com/watch?v=Of1phFsC4ZI){:target="\_blank"}. For someone coming from .NET who is not interested in front-end frameworks and tooling, or writing any Javascript really, I am very interested to see what happens with LiveView over the next couple years. Blazor has me interested, but it's just not ready for the big time yet.
 
-To take the new experience for a spin I made a very rough but correct Wordle clone. It's at [/wordle/:word](/wordle/apple){:target="\_blank"}. The URL parameter is the hidden word and there's no word list so you can both provide and guess nonsense words.
+To take the new experience for a spin I made a very rough but correct Wordle clone. It's at [/wordle/:word](/wordle/apple){:target="\_blank"}. The URL parameter is the hidden word. If you want you can visit [/wordle/play](/wordle/play){:target="\_blank"} to get random words.
 
 I just challenged myself to solve the guess evaluation functionally. I see lots of examples of people creating a naive guess evaluation algorithm that fails to produce correct output when letters repeat. Try guessing `poppy` at the link provided to see what I mean. The secret word is `apple` and `poppy` has one `p` that's correctly positioned and two that aren't. Only one of the `p`s should be yellow since there are only two in the secret word. Many implementations I've seen will falsely color both of the `p`s yellow in addition to the correct `p` that's green.
 
