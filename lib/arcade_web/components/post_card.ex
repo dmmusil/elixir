@@ -3,12 +3,15 @@ defmodule ArcadeWeb.Blog.Components do
 
   def post_card(assigns) do
     ~H"""
-    <p><a href={"/posts/#{@post.id}"}><%= "#{@post.title} - #{@post.date}" %></a><br />
-    <%= for tag <- @post.tags do %>
-      <.tag tag={tag} />
-    <% end %></p>
+    <p>
+      <a href={"/posts/#{@post.id}"}><%= "#{@post.title} - #{@post.date}" %></a>
+      <br />
+      <%= for tag <- @post.tags do %>
+        <.tag tag={tag} />
+      <% end %>
+    </p>
     <p><%= @post.description %></p>
-    <hr/>
+    <hr />
     """
   end
 

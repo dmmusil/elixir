@@ -48,12 +48,12 @@ defmodule ArcadeWeb.Wordle do
     ~H"""
     <div class="container" phx-window-keyup="interact">
       Press enter to submit a guess after entering 5 letters
-      <.render_guess guess={@guess1} result={@result1}/>
-      <.render_guess guess={@guess2} result={@result2}/>
-      <.render_guess guess={@guess3} result={@result3}/>
-      <.render_guess guess={@guess4} result={@result4}/>
-      <.render_guess guess={@guess5} result={@result5}/>
-      <.render_guess guess={@guess6} result={@result6}/>
+      <.render_guess guess={@guess1} result={@result1} />
+      <.render_guess guess={@guess2} result={@result2} />
+      <.render_guess guess={@guess3} result={@result3} />
+      <.render_guess guess={@guess4} result={@result4} />
+      <.render_guess guess={@guess5} result={@result5} />
+      <.render_guess guess={@guess6} result={@result6} />
       <p style={@style}>Answer was <%= @word %></p>
     </div>
     """
@@ -64,13 +64,13 @@ defmodule ArcadeWeb.Wordle do
     result = assigns.result
 
     ~H"""
-      <p style="margin-bottom: 0.5rem">
-        <.cell letter={String.at(guess,0)} result={Enum.at(result, 0)}/>
-        <.cell letter={String.at(guess,1)} result={Enum.at(result, 1)}/>
-        <.cell letter={String.at(guess,2)} result={Enum.at(result, 2)}/>
-        <.cell letter={String.at(guess,3)} result={Enum.at(result, 3)}/>
-        <.cell letter={String.at(guess,4)} result={Enum.at(result, 4)}/>
-      </p>
+    <p style="margin-bottom: 0.5rem">
+      <.cell letter={String.at(guess, 0)} result={Enum.at(result, 0)} />
+      <.cell letter={String.at(guess, 1)} result={Enum.at(result, 1)} />
+      <.cell letter={String.at(guess, 2)} result={Enum.at(result, 2)} />
+      <.cell letter={String.at(guess, 3)} result={Enum.at(result, 3)} />
+      <.cell letter={String.at(guess, 4)} result={Enum.at(result, 4)} />
+    </p>
     """
   end
 
@@ -92,7 +92,7 @@ defmodule ArcadeWeb.Wordle do
       "background-color: #{bg_color}; width: 2em; font-size: 2em; display: inline-block; text-align: center; v-align: bottom"
 
     ~H"""
-    <span style={style}><%= raw letter %></span>
+    <span style={style}><%= raw(letter) %></span>
     """
   end
 

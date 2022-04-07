@@ -19,8 +19,10 @@ defmodule ArcadeWeb.Hangman do
 
       <p>
         <%= for c <- guessables() do %>
-          <span phx-key={c} phx-click='guess' phx-value-guess={c} style='cursor: pointer;'><%= c %></span>
-        <% end  %>
+          <span phx-key={c} phx-click="guess" phx-value-guess={c} style="cursor: pointer;">
+            <%= c %>
+          </span>
+        <% end %>
       </p>
 
       <p><%= @status %></p>

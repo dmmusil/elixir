@@ -7,22 +7,22 @@
     id="workout-form"
     phx-target={@myself}
     phx-change="validate"
-    phx-submit="save">
-  
-    <%= label f, :date %>
-    <%= date_input f, :date %>
-    <%= error_tag f, :date %>
-  
-    <%= label f, :start_time %>
-    <%= time_input f, :start_time %>
-    <%= error_tag f, :start_time %>
-  
-    <%= label f, :end_time %>
-    <%= time_input f, :end_time %>
-    <%= error_tag f, :end_time %>
-  
+    phx-submit="save"
+  >
+    <%= label(f, :date) %>
+    <%= date_input(f, :date) %>
+    <%= error_tag(f, :date) %>
+
+    <%= label(f, :start_time) %>
+    <%= time_input(f, :start_time) %>
+    <%= error_tag(f, :start_time) %>
+
+    <%= label(f, :end_time) %>
+    <%= time_input(f, :end_time) %>
+    <%= error_tag(f, :end_time) %>
+
     <div>
-      <%= submit "Save", phx_disable_with: "Saving..." %>
+      <%= submit("Save", phx_disable_with: "Saving...") %>
     </div>
   </.form>
 </div>
